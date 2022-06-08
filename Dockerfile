@@ -96,7 +96,7 @@ ENV DEBIAN_FRONTEND=
 WORKDIR /home/$USERNAME/catkin_ws/
 RUN  source /opt/ros/melodic/setup.bash \
 && rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y \
-&& catkin build 
+&& catkin build  \
 && source devel/setup.bash 
 
 WORKDIR /home/catkin_ws/src
