@@ -99,12 +99,11 @@ RUN  source /opt/ros/melodic/setup.bash \
 && catkin build  \
 && source devel/setup.bash 
 
-WORKDIR /home/catkin_ws/src
+WORKDIR /home/$USERNAME/catkin_ws/
 COPY . .
 
 
 # Rebuild Workspace
-RUN source /opt/ros/melodic/setup.bash \
- &&  cd /home/catkin_ws/ \
+RUN   cd  /home/$USERNAME/catkin_ws/ \
  && rosdep install --from-paths src --ignore-src -r -y \
  && catkin build
